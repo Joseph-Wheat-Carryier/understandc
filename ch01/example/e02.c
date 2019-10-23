@@ -4,6 +4,6 @@ int main(void){
 	int width;
 	scanf("%d,%d",&length,&width);
 	int area = length*width;
-	printf("%s,%d\n","长方形的面积是",area);
+	printf("%s%d\n","长方形的面积是",area);
 	return 0;
 }
