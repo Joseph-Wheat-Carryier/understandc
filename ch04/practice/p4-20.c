@@ -26,9 +26,9 @@ int main(void) {
             for (int i = 1; i <= 10; i++) {
 
                 if (i % 10 != 0) {
-                    printf("%s", "-----");
+                    printf("%3s", " - - ");
                 } else {
-                    printf("%s\n", "-----");
+                    printf("%3s\n", " - - ");
                 }
 
             }
