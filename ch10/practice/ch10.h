@@ -56,7 +56,7 @@ int indexOf(char *target, char *check) {
             int j = 0;
             while (*(check + j) != '\0') {
                 if (*(target + i + j) != *(check + j)) {
-                    printf("%c\n", *(check + j) );
+
                     break;
                 }
                 j++;
@@ -129,11 +129,14 @@ int equals(char *str1, char *str2) {
  */
 char *replace(char *target, char *old, char *source) {
     int index = indexOf(target, old);
-    int lengtht = strlen(target);
+
     int length1 = strlen(old);
     int length2 = strlen(source);
 
-    if (index + 1) {
+
+    while (index + 1) {
+
+        int lengtht = strlen(target);
 
         if (length2 >= length1) {
             for (int i = 0; i <= lengtht - length1 - index; i++) {
@@ -153,6 +156,13 @@ char *replace(char *target, char *old, char *source) {
                 target[i] = source[i - index];
             }
         }
+
+        if (indexOf(target + index + length2, old) != -1) {
+            index = index + length2 + indexOf(target + index + length2, old);
+        } else {
+            index = -1;
+        }
+
     }
 
     return target;
@@ -290,23 +300,8 @@ char *subString(char *cp, int from, int end) {
 char *splitFirst(char *target, char *split) {
     int lengtht = strlen(target);
     int lengths = strlen(split);
-    int index = lengtht;
+    int index = indexOf(target, split);
 
-    for (int i = 0; i < lengtht; i++) {
-
-        if (target[i] == *split) {
-
-            for (int j = 0; j < lengths; j++) {
-                if (target[i + j] != split[j]) {
-                    break;
-                }
-                if (j == lengths - 1) {
-                    index = i;
-
-                }
-            }
-        }
-    }
 
     for (int i = index; i < lengtht - 1; i++) {
         target[i] = '\0';
