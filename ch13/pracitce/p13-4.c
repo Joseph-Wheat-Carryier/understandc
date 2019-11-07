@@ -12,20 +12,26 @@ int main(void) {
     if ((fp = fopen("hw2.dat", "w")) == NULL) { /*打开文件*/
         printf("\a文件打开失败！！！\n");
     } else {
-        do{ 
-            printf("任意键开始\n");
-            while(getchar()!='\n');
+        printf("任意键开始\n");
+
+        do {
+
+            while (getchar() != '\n');
+
             printf("输入姓名:");
             scanf("%s", name);
-            while(getchar()!='\n');
+
+            while (getchar() != '\n');
 
             printf("输入身高:");
             scanf("%lf", &height);
-            while(getchar()!='\n');
+
+            while (getchar() != '\n');
 
             printf("输入体重:");
             scanf("%lf", &weight);
-            while(getchar()!='\n');
+
+            while (getchar() != '\n');
 
             printf("是否继续？任意键继续,0完成。\n");
 
@@ -34,7 +40,7 @@ int main(void) {
             hsum += height;
             wsum += weight;
 
-        }while (getchar() != '0');
+        } while (getchar() != '0');
 
         fprintf(fp, "------------------------------\n");
         fprintf(fp, "平均        %5.1lf  %5.1lf\n", hsum / ninzu, wsum / ninzu);
